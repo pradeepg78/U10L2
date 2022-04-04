@@ -4,7 +4,8 @@ public class Countdown
 {
     public static void main(String[] args)
     {
-        System.out.println(isPalindrome("mohammed"));
+        int[] intArr = {2, 4, 5, 7, 9, 10, 6, 3, 1};
+        System.out.println(findMaximum(intArr, 0));
     }
 
     public static String countdown(int number)
@@ -27,7 +28,28 @@ public class Countdown
     }
 
     public static int countEvens(int[] array, int i) {
-        
+       if (i == array.length) return 0;
+       int n;
+       if ((array[i] % 2) == 0)
+       {
+           n = 1;
+       }
+       else
+       {
+           n = 0;
+       }
+       return n + countEvens(array, i + 1);
+    }
+
+    public static int findMaximum(int[] array, int i) {
+       if (i == array.length) return 0;
+       int max = array[i];
+       if (max < array[i + 1])
+       {
+           max = array[i + 1];
+       }
+       return findMaximum(array, i + 1);
+
     }
 
 

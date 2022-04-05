@@ -4,7 +4,7 @@ public class Countdown
 {
     public static void main(String[] args)
     {
-        int[] intArr = {2, 4, 5, 7, 9, 10, 6, 3, 1};
+        int[] intArr = {2, 4, 5, 7, 9, 9, 6, 3, 96};
         System.out.println(findMaximum(intArr, 0));
     }
 
@@ -42,14 +42,13 @@ public class Countdown
     }
 
     public static int findMaximum(int[] array, int i) {
-       if (i == array.length) return 0;
-       int max = array[i];
-       if (max < array[i + 1])
+       if (i == array.length - 1) return array[i];
+       int max = findMaximum(array, i + 1);
+       if (max > array[i])
        {
-           max = array[i + 1];
+           return max;
        }
-       return findMaximum(array, i + 1);
-
+       else return array[i];
     }
 
 
